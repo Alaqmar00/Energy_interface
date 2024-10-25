@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Scooty Login</title>
+    <style>
+        /* Style for mobile outline */
+        .mobile-outline {
+            width: 90vw;
+            height: 90vh;
+            border: 16px solid black;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            position: relative;
+            background-color: #f0f0f0;
+            overflow: hidden;
+            max-width: 400px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        /* Video background styling */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Slideshow styling */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Input container for buttons and motivational text on each slide */
+        .slide-buttons {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .motivational-line {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 15px;
+        }
+
+        button {
+            background-color: #00897b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 45%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mobile-outline">
+    <!-- Video Background -->
+    <video autoplay muted loop class="video-background" id="introVideo">
+        <source src="/videos/ENERGY.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container" id="slideshow">
+        <div class="slide" style="background-image: url('/images/image1.jpg');">
+            <div class="slide-buttons">
+                <div class="motivational-line">The future of transportation is electric scooters!</div>
+                <div class="button-container">
+                    <button onclick="window.location.href='/login'">Login</button>
+                    <button onclick="window.location.href='/register'">Register</button>
+                </div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('/images/image2.png');">
+            <div class="slide-buttons">
+                <div class="motivational-line">Ride smart, ride green!</div>
+                <div class="button-container">
+                    <button onclick="window.location.href='/login'">Login</button>
+                    <button onclick="window.location.href='/register'">Register</button>
+                </div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('/images/image3.png');">
+            <div class="slide-buttons">
+                <div class="motivational-line">Join the electric revolution today!</div>
+                <div class="button-container">
+                    <button onclick="window.location.href='/login'">Login</button>
+                    <button onclick="window.location.href='/register'">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let slideIndex = 0;
+
+    // Function to show slides
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1; }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000); // Change slide every 3 seconds
+    }
+
+    // Function to hide video and show slideshow
+    function showSlideshow() {
+        document.getElementById('introVideo').style.display = 'none';
+        document.getElementById('slideshow').style.display = 'flex';
+        showSlides();
+    }
+
+    // Transition to slideshow after 6 seconds
+    setTimeout(showSlideshow, 6000);
+</script>
+
+</body>
+</html>

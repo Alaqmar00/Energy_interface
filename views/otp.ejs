@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <style>
+        /* Style for mobile outline */
+        .mobile-outline {
+            width: 90vw;
+            height: 90vh;
+            border: 16px solid black;
+          
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            max-width: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('/images/background.jpg') no-repeat center center; /* Set your background image here */
+            background-size: cover;
+        }
+
+        /* Center the input container in the middle */
+        .input-container {
+            margin-top: 25%;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the container */
+            width: 80%;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .motivational-line {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between buttons */
+        }
+
+        button {
+            background-color: #00897b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            width: 40%; /* Adjusted width for better button layout */
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+
+        /* Body styling to center the entire outline */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mobile-outline">
+    <div class="input-container">
+        <div class="motivational-line">Enter the OTP sent to your mobile number!</div>
+        <input type="text" placeholder="Enter OTP" required>
+        <div class="button-container">
+            <button type="submit">Verify OTP</button>
+            <button type="button" onclick="resendOTP()">Resend OTP</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function resendOTP() {
+        alert("OTP has been resent! Please check your mobile.");
+        // Add your resend OTP logic here
+    }
+</script>
+
+</body>
+</html>

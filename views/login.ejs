@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Energy Scooty</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Fallback background color */
+        }
+
+        .mobile-outline {
+            width: 90vw;
+            max-width: 400px;
+            height: 80vh;
+            border: 16px solid black;
+           
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            position: relative;
+            background-image: url('/images/background.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            margin-top: 40%;
+            width: 70%; /* Adjusted width for form container */
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(7, 0, 0, 0.5); /* Less faded white background */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+        }
+
+        h2 {
+            margin: 0 0 20px;
+            font-size: 24px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center; /* Center the placeholder text */
+            box-sizing: border-box; /* Ensure padding doesn't push content outside */
+        }
+
+        button {
+            background-color: #00897b;
+            color: white;
+            padding: 8px; /* Slightly smaller padding */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px; /* Slightly smaller font size */
+            width: 100%;
+            max-width: 100%; /* Prevent button overflow */
+            box-sizing: border-box; /* Ensure padding doesn't break layout */
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+        h2{
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mobile-outline">
+    <div class="form-container">
+        <h2>Login</h2>
+        <input type="text" placeholder="Mobile Number" required>
+        <button onclick="window.location.href='/otp'">Get OTP</button>
+    </div>
+</div>
+
+</body>
+</html>
