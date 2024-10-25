@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTP Verification</title>
     <style>
-        /* Style for mobile outline */
+        /* Body styling to center the entire outline */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e0e0e0;
+        }
+
         .mobile-outline {
-            width: 70vw;
-            max-width: 100%;
+            width: 90vw; /* Width for mobile devices */
+            max-width: 350px; /* Increased maximum width for better usability */
             height: 90vh;
             border: 16px solid black;
             border-radius: 5%;
@@ -17,21 +27,15 @@
             box-sizing: border-box;
             position: relative;
             overflow: hidden;
-            max-width: 400px;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Centered content */
+            align-items: center; /* Centered content */
             background: url('/images/background.jpg') no-repeat center center; /* Set your background image here */
-            background-size: cover;
+            background-size: cover; /* Ensure the background image covers the entire div */
         }
 
         /* Center the input container in the middle */
         .input-container {
-            margin-top: 25%;
-            position: absolute;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Center the container */
             width: 80%;
             background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
             padding: 20px;
@@ -56,36 +60,26 @@
         }
 
         .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Space between buttons */
+            display: flex; /* Use flexbox to arrange buttons in a row */
+            justify-content: space-between; /* Space between buttons */
+            gap: 10px; /* Space between buttons */
+            margin-top: 10px; /* Optional margin above buttons */
         }
 
         button {
             background-color: #00897b;
             color: white;
-            padding: 10px;
+            padding: 8px; /* Decreased padding for smaller button size */
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
             transition: background-color 0.3s;
-            width: 40%; /* Adjusted width for better button layout */
+            width: 48%; /* Adjusted width for smaller buttons */
         }
 
         button:hover {
             background-color: #00796b;
-        }
-
-        /* Body styling to center the entire outline */
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #e0e0e0;
         }
     </style>
 </head>

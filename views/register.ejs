@@ -16,44 +16,41 @@
         }
 
         .mobile-outline {
-            width: 70vw;
+            width: 90vw; /* Adjusted width for mobile devices */
+            max-width: 350px;
             height: 90vh;
             border: 16px solid black;
-          border-radius: 5%;
+            border-radius: 5%;
             padding: 0;
             margin: 0;
             box-sizing: border-box;
             position: relative;
-            background-color: #f0f0f0;
-            overflow: hidden;
-            max-width: 400px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
             background-image: url('/images/background.jpg'); /* Background image */
             background-size: cover;
             background-position: center;
+            display: flex;
+            justify-content: center; /* Centered content */
+            align-items: center; /* Centered content */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
         }
 
         .form-container {
-            margin-top: 25%;
-            margin-right: 10%;
-            width: 70%; /* Adjusted width for form container */
+            width: 80%; /* Adjusted width for form container */
+            margin-top: 40%;
             padding: 20px;
             text-align: center;
-            background-color: rgba(7, 0, 0, 0.5); /* Less faded white background */
+            background-color: rgba(7, 0, 0, 0.5); /* Semi-transparent background */
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
         }
 
         h2 {
             margin: 0 0 20px;
+            color: #f0f0f0; /* Color for heading */
         }
 
         input {
-            width: 90%;
-            margin-right: 10%;
+            width: 90%; /* Input width */
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -61,32 +58,26 @@
             font-size: 16px;
         }
 
+        .buttons {
+            display: flex;
+            justify-content: space-between; /* Space between buttons */
+            margin-top: 10px; /* Margin above buttons */
+        }
+
         button {
             background-color: #00897b;
             color: white;
-            padding: 10px;
+            padding: 10px; /* Adjusted padding for button size */
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            width: 100%;
-       
+            width: 48%; /* Adjusted width for better button layout */
         }
-
 
         button:hover {
-            background-color: #00796b;
+            background-color: #00796b; /* Hover effect for buttons */
         }
-        h2{
-            color: #f0f0f0;
-        }
-        .buttons{
-    display: flex;
-    flex-direction: column; /* Stacks buttons vertically */
-    justify-content: center; /* Center buttons vertically */
-    align-items: center; /* Center buttons horizontally */
-    gap: 10px; /* Space between the buttons */
-}
     </style>
 </head>
 <body>
@@ -96,15 +87,13 @@
         <h2>Register</h2>
         <input type="text" placeholder="First Name" required>
         <input type="text" placeholder="Last Name" required>
-        <input type="text" placeholder="Email" required>
+        <input type="email" placeholder="Email" required>
         <input type="text" placeholder="Mobile Number" required>
         <div class="buttons">
-        <button onclick="window.location.href='/otp'">Get OTP</button>
-        <button   onclick="window.location.href='/login'">Already Register?</button>
+            <button onclick="window.location.href='/otp'">Get OTP</button>
+            <button onclick="window.location.href='/login'">Already Registered?</button>
+        </div>
     </div>
-    </div
-    
-
 </div>
 
 </body>

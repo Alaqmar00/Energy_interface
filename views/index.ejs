@@ -7,21 +7,23 @@
     <style>
         /* Style for mobile outline */
         .mobile-outline {
-            width: 50vw; /* Decreased width */
-            max-width: 300px;
-            height: 90vh;
+            width: 90vw; /* Use the same width as in login.ejs */
+            max-width: 350px; /* Adjusted maximum width for consistency */
+            height: 90vh; /* Height to match the login.ejs */
             border: 16px solid black;
             border-radius: 5%;
             padding: 0;
             margin: 0;
             box-sizing: border-box;
             position: relative;
-            background-color: #f0f0f0;
+            background-color: rgba(240, 240, 240, 0.9);
             overflow: hidden;
-            max-width: 400px;
             display: flex;
-            justify-content: flex-end;
-            align-items: center;
+            justify-content: center; /* Centered content */
+            align-items: center; /* Centered content */
+            background-image: url('/images/background.jpg'); /* Ensure correct path to your background image */
+            background-size: cover; /* Cover the entire area */
+            background-position: center; /* Center the image */
         }
 
         /* Video background styling */
@@ -98,17 +100,15 @@
         }
 
         /* Body styling */
-        
         body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e0e0e0;
-}
-
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e0e0e0;
+        }
     </style>
 </head>
 <body>
