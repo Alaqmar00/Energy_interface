@@ -16,30 +16,30 @@
         }
 
         .mobile-outline {
-            width: 90vw;
-            max-width: 400px;
-            height: 80vh;
+            width: 90vw; /* Width for mobile devices */
+            max-width: 350px; /* Increased maximum width for better usability */
+            height: 90vh;
             border: 16px solid black;
-           
+            border-radius: 5%;
             padding: 0;
             margin: 0;
             box-sizing: border-box;
             position: relative;
-            background-image: url('/images/background.jpg'); /* Background image */
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+            background-color: rgba(240, 240, 240, 0.9); /* Light background with transparency */
+            overflow: hidden;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Centered content */
+            align-items: center; /* Centered content */
+            background-image: url('images/background.jpg'); /* Ensure correct path to your background image */
+            background-size: cover; /* Cover the entire area */
+            background-position: center; /* Center the image */
         }
 
         .form-container {
-            margin-top: 40%;
-            width: 70%; /* Adjusted width for form container */
+            width: 80%; /* Full width for better responsiveness */
             padding: 20px;
             text-align: center;
-            background-color: rgba(7, 0, 0, 0.5); /* Less faded white background */
+            background-color: rgba(7, 0, 0, 0.5); /* Less faded background */
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
         }
@@ -47,6 +47,7 @@
         h2 {
             margin: 0 0 20px;
             font-size: 24px;
+            color: #f0f0f0; /* Header color */
         }
 
         input {
@@ -63,21 +64,25 @@
         button {
             background-color: #00897b;
             color: white;
-            padding: 8px; /* Slightly smaller padding */
+            padding: 10px; /* Padding for touch targets */
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 14px; /* Slightly smaller font size */
+            font-size: 16px; /* Adjusted font size */
             width: 100%;
-            max-width: 100%; /* Prevent button overflow */
             box-sizing: border-box; /* Ensure padding doesn't break layout */
         }
 
         button:hover {
-            background-color: #00796b;
+            background-color: #00796b; /* Darker shade on hover */
         }
-        h2{
-            color: #f0f0f0;
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 480px) {
+            .mobile-outline {
+                width: 95vw; /* Full width for very small screens */
+                max-width: 90%; /* Ensure it doesn't overflow */
+            }
         }
     </style>
 </head>

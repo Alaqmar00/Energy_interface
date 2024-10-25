@@ -7,9 +7,11 @@
     <style>
         /* Style for mobile outline */
         .mobile-outline {
-            width: 90vw;
+            width: 50vw; /* Decreased width */
+            max-width: 300px;
             height: 90vh;
             border: 16px solid black;
+            border-radius: 5%;
             padding: 0;
             margin: 0;
             box-sizing: border-box;
@@ -96,22 +98,24 @@
         }
 
         /* Body styling */
+        
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #e0e0e0;
-        }
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+}
+
     </style>
 </head>
 <body>
 
 <div class="mobile-outline">
     <!-- Video Background -->
-    <video autoplay muted loop class="video-background" id="introVideo">
+    <video autoplay muted class="video-background" id="introVideo">
         <source src="/videos/ENERGY.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -170,8 +174,9 @@
         showSlides();
     }
 
-    // Transition to slideshow after 6 seconds
-    setTimeout(showSlideshow, 6000);
+    // Transition to slideshow after video ends
+    const video = document.getElementById('introVideo');
+    video.onended = showSlideshow;
 </script>
 
 </body>
