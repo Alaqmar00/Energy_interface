@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #e0e0e0;
+        }
+
+        .mobile-outline {
+            width: 90vw;
+            max-width: 350px;
+            height: 90vh;
+            border: 16px solid black;
+            border-radius: 5%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgb(46, 41, 41);
+        }
+
+        /* Scrollable Content */
+        .content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        /* Custom Scrollbar */
+        .content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .content::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        /* Menu Button */
+        .menu-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            z-index: 20;
+        }
+
+        /* Sidebar Menu */
+        .menu {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding-top: 60px;
+            transition: 0.3s ease-in-out;
+            z-index: 10;
+        }
+
+        .menu a {
+            padding: 10px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            margin: 8px;
+        }
+
+        .menu a:hover {
+            background: #575757;
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Banner Image */
+        .banner {
+            width: 100%;
+            height: 40%;
+            background: url('/images/banner.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* Feature Options */
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .option img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(33, 30, 30, 0.8);
+            padding: 10px;
+            object-fit: contain;
+        }
+
+        .option span {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(247, 245, 245);
+        }
+
+        /* Book Now Button */
+        .book-now {
+            width: 100%;
+            padding: 15px;
+            background-color: #00897b;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .book-now:hover {
+            background-color: #00796b;
+        }
+
+        /* Chat Button */
+        .chat-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .chat-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="mobile-outline">
+    <button class="menu-button" onclick="toggleMenu()">&#9776;</button>
+
+    <!-- Sidebar Menu -->
+    <div class="menu" id="menu">
+        <span class="close-menu" onclick="toggleMenu()">&times;</span>
+        <a href="/scooty_catalog">Scooty Catalog</a>
+        <a href="/test_riding">Test Riding</a>
+        <a href="/service">Maintenance & Service</a>
+        <a href="/savings_calculator">Savings Calculator</a>
+        <a href="/feedback">Feedback</a>
+        <a href="/admin_dashboard">Admin Dashboard</a>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="content">
+        <!-- Banner Image at Top -->
+        <div class="banner"></div>
+
+        <!-- Feature Options at Bottom -->
+        <div class="options">
+            <a href="/scooty_catalog" class="option">
+                <img src="/images/catlog.jpg" alt="Scooty Catalog">
+                <span>Scooty Catalog</span>
+            </a>
+            <a href="/test_riding" class="option">
+                <img src="/images/test.jpg" alt="Test Riding">
+                <span>Test Riding</span>
+            </a>
+            <a href="/service" class="option">
+                <img src="/images/service.jpg" alt="Service Scheduling">
+                <span>Service Scheduling</span>
+            </a>
+            <a href="/saving_calculator" class="option">
+                <img src="/images/calci.webp" alt="Saving Calculator">
+                <span>Saving Calculator</span>
+            </a>
+        </div>
+
+        <!-- Book Now Button at Bottom -->
+        <button class="book-now" onclick="location.href='/book_now'">Book Now</button>
+    </div>
+</div>
+
+<!-- Chat Button -->
+<div class="chat-button">
+    <img src="/images/chat_icon.svg" alt="Chat">
+</div>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+    }
+</script>
+
+</body>
+</html>

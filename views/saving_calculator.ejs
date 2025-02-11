@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for Graph -->
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f5f5f5;
+        }
+
+        /* Mobile Outline */
+        .mobile-outline {
+            width: 90vw;
+            max-width: 350px;
+            height: 90vh;
+            border: 16px solid black;
+            border-radius: 5%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+        }
+
+        /* Scrollable Content */
+        .content {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Header */
+        .header {
+            width: 100%;
+            padding: 15px;
+            background: #00897b;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin: 10px 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Result Display */
+        .result-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .savings-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff6f00;
+        }
+
+        /* Submit Button */
+        .calculate-btn {
+            margin-top: 15px;
+            padding: 10px;
+            background: #00897b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Chart Canvas */
+        canvas {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="mobile-outline">
+    <!-- Header -->
+    <div class="header">
+        <button class="back-button" onclick="location.href='/'">&#8592; Back</button>
+        Savings Calculator
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="content">
+        <!-- Select Scooty -->
+        <div class="form-group">
+            <label for="scootySelect">Select Your Scooty:</label>
+            <select id="scootySelect">
+                <option value="modelA" data-mileage="40" data-electric="1.5">Scooty Model A</option>
+                <option value="modelB" data-mileage="50" data-electric="2.0">Scooty Model B</option>
+                <option value="modelC" data-mileage="60" data-electric="2.5">Scooty Model C</option>
+            </select>
+        </div>
+
+        <!-- Enter Distance -->
+        <div class="form-group">
+            <label for="distance">Enter Daily Travel Distance (km):</label>
+            <input type="number" id="distance" value="20">
+        </div>
+
+        <!-- Calculate Button -->
+        <button class="calculate-btn" onclick="calculateSavings()">Calculate Savings</button>
+
+        <!-- Result Display -->
+        <div class="result-container">
+            <p class="savings-text">You save ₹<span id="savingsAmount">0</span> per month!</p>
+        </div>
+
+        <!-- Chart Canvas -->
+        <canvas id="savingsChart"></canvas>
+    </div>
+</div>
+
+<script>
+    function calculateSavings() {
+        let scootySelect = document.getElementById("scootySelect");
+        let selectedOption = scootySelect.options[scootySelect.selectedIndex];
+
+        let petrolMileage = selectedOption.getAttribute("data-mileage"); // Petrol mileage (km/liter)
+        let electricCharge = selectedOption.getAttribute("data-electric"); // Charge per km (₹)
+
+        let dailyDistance = document.getElementById("distance").value;
+        let petrolPrice = 100; // ₹100 per liter
+        let electricityRate = 8; // ₹8 per unit
+
+        // Petrol cost per month
+        let monthlyPetrolCost = (dailyDistance * 30) / petrolMileage * petrolPrice;
+
+        // Electric cost per month
+        let monthlyElectricCost = (dailyDistance * 30) * electricCharge * electricityRate;
+
+        // Savings Calculation
+        let savings = Math.round(monthlyPetrolCost - monthlyElectricCost);
+        document.getElementById("savingsAmount").innerText = savings;
+
+        // Chart Update
+        updateChart(monthlyPetrolCost, monthlyElectricCost);
+    }
+
+    // Chart.js for visual comparison
+    let savingsChart = new Chart(document.getElementById("savingsChart"), {
+        type: "bar",
+        data: {
+            labels: ["Petrol Cost", "Electric Cost"],
+            datasets: [{
+                label: "Monthly Cost (₹)",
+                backgroundColor: ["#FF6F00", "#00897b"],
+                data: [0, 0]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    function updateChart(petrolCost, electricCost) {
+        savingsChart.data.datasets[0].data = [petrolCost, electricCost];
+        savingsChart.update();
+    }
+</script>
+
+</body>
+</html>

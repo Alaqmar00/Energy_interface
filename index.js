@@ -29,6 +29,33 @@ app.get('/otp', (req, res) => {
     res.render('otp'); // Render OTP verification page
 });
 
+app.get('/home', (req, res) => {
+    res.render('home'); // Ensure you have a 'home.ejs' file inside the views directory
+});
+
+app.get("/scooty_catalog", (req, res) => {
+    res.render("scooty_catalog");
+});
+
+app.get("/test_riding", (req, res) => {
+    res.render("test_riding");
+});
+
+app.get("/service", (req, res) => {
+    res.render("service");
+});
+
+app.get("/saving_calculator", (req, res) => {
+    res.render("saving_calculator");
+});
+
+app.get("/feedback", (req, res) => {
+    res.render("feedback");
+});
+
+app.get("/admin_dashboard", (req, res) => {
+    res.render("admin_dashboard");
+});
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

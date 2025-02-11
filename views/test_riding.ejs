@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ride Booking</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #e0e0e0;
+        }
+
+        /* Mobile Outline */
+        .mobile-outline {
+            width: 90vw;
+            max-width: 350px;
+            height: 90vh;
+            border: 16px solid black;
+            border-radius: 5%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+        }
+
+        /* Scrollable Content */
+        .content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* Header */
+        .header {
+            width: 100%;
+            padding: 15px;
+            background: #00897b;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin: 10px 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Time Slot Buttons */
+        .slot-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .slot-button {
+            padding: 10px;
+            border: none;
+            background: #00897b;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .slot-button:hover, .slot-button.selected {
+            background: #005f56;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            margin-top: 15px;
+            padding: 10px;
+            background: #ff6f00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="mobile-outline">
+    <!-- Header -->
+    <div class="header">
+        <button class="back-button" onclick="location.href='/home'">&#8592; Back</button>
+        Book a Test Ride
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="content">
+        <form id="testRideForm">
+            <!-- Scooty Model Selection -->
+            <div class="form-group">
+                <label for="scootyModel">Select Scooty Model:</label>
+                <select id="scootyModel" name="scootyModel" required>
+                    <option value="">-- Choose Model --</option>
+                    <option value="Model X1">Model X1</option>
+                    <option value="Eco Swift">Eco Swift</option>
+                    <option value="Power Glide">Power Glide</option>
+                    <option value="Volt Runner">Volt Runner</option>
+                    <option value="Speedster EV">Speedster EV</option>
+                    <option value="Neo Glide">Neo Glide</option>
+                </select>
+            </div>
+
+            <!-- Available Time Slots -->
+            <div class="form-group">
+                <label>Select Time Slot:</label>
+                <div class="slot-container">
+                    <button type="button" class="slot-button" onclick="selectSlot(this)">10:00 AM</button>
+                    <button type="button" class="slot-button" onclick="selectSlot(this)">11:00 AM</button>
+                    <button type="button" class="slot-button" onclick="selectSlot(this)">12:00 PM</button>
+                    <button type="button" class="slot-button" onclick="selectSlot(this)">2:00 PM</button>
+                    <button type="button" class="slot-button" onclick="selectSlot(this)">3:00 PM</button>
+                    <button type="button" class="slot-button" onclick="selectSlot(this)">4:00 PM</button>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    let selectedSlot = null;
+
+    function selectSlot(button) {
+        if (selectedSlot) {
+            selectedSlot.classList.remove("selected");
+        }
+        selectedSlot = button;
+        selectedSlot.classList.add("selected");
+    }
+
+    document.getElementById("testRideForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        const model = document.getElementById("scootyModel").value;
+        if (!selectedSlot) {
+            alert("Please select a time slot.");
+            return;
+        }
+
+        const slotTime = selectedSlot.innerText;
+        alert(`Test Ride Booked!\nScooty: ${model}\nSlot: ${slotTime}`);
+    });
+</script>
+
+</body>
+</html>
